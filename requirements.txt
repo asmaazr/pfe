@@ -1,0 +1,9 @@
+numpy
+plotly
+pandas
+pycountry
+tweepy
+joblib
+sklearn
+emoji
+nltk

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Aircompare - Home</title>
+
+  <!-- Font Awesome Icons -->
+  <link href="/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Damion|Julius+Sans+One|Michroma|Quicksand&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Faster+One|Montserrat+Subrayada|Righteous|Rock+Salt|Sriracha&display=swap" rel="stylesheet"> 
+  <!-- Plugin CSS -->
+  <link href="/static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <!-- FlexDatalist -->
+  	<link href="static/jquery.flexdatalist.min.css" rel="stylesheet" type="text/css">
+	<link href="static/jquery.flexdatalist.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <!-- Theme CSS - Includes Bootstrap -->
+  <link href="/static/css/creative.css" rel="stylesheet">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/img/ico/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/img/ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/img/ico/favicon-16x16.png">
+  <link rel="manifest" href="/static/img/ico/site.webmanifest">
+  <link rel="stylesheet" href="/static/css/awesomplete.css" />
+
+  <link rel="stylesheet" href="//nico-amsterdam.github.io/awesomplete-util/css/awesomplete.css">
+<script src="//nico-amsterdam.github.io/awesomplete-util/js/awesomplete.min.js"></script>
+<script src="//nico-amsterdam.github.io/awesomplete-util/js/awesomplete-util.min.js"></script>
+<style>
+div.awesomplete {display: initial}
+div.awesomplete ul li p {display: block; font-size: small; margin-left: 1em , font-family: 'Julius Sans One', sans-serif;}
+div.awesomplete .awe-found {border: 2px solid green}
+.hide-not-found div.awesomplete .awe-not-found {border-color: lightblue}
+div.awesomplete .awe-not-found {border: 2px solid red}
+.awesomplete mark {background: #8a8a8a;}
+</style>
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Aircompare</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#compare">Compare</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#features">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#why">Why Aircompare?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  
+            
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-10 align-self-end">
+          <div class="switcher" shift="Airline comparator,sentiment analysis,fast results,based on tweets"></div>
+        </div>
+        <div class="col-lg-8 align-self-baseline">
+          <p class="text-white-75 font-weight-light mb-5">Search, Compare Airlines & Save</p>
+          <a class="btn btn-primary btn-xl js-scroll-trigger open-form" href="#compare">Get started</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="page-section bg-primary" id="compare">
+    <div class="container" >
+      <div class="row justify-content-center" >
+        <div class="col-lg-8 text-center">
+          <h2 class="text-white mt-0" >We've got what you need!</h2>
+          <hr class="divider light my-4">
+          <p class="text-white-50 mb-4">Have you ever wondered how safe the airline you are about to board is? Perhaps you have had niggling doubts, strong feelings or extreme anxiety about what lies ahead? In a world-first, Aircompare delivers instantaneous comparison for more than 600 airlines around the world.</p>
+          <section>
+            
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <a class="navbar-brand js-scroll-trigger">Aircompare</a>
+    </div>
+
+    <!-- COMPARE Form -->
+    <form method="GET">
+     <!--<input  id="air-name" name="airline"  placeholder="airline name" type="text" class='flexdatalist'  multiple='multiple' data-list="{{data}}" style="display: initial;"/>--> 
+      <input type='text' placeholder="Select at least one airline..." class='flexdatalist'  multiple list="air" type="text" name='airline'>
+	 <datalist id="air">
+              {% for opt in data %}
+              <option value="{{ opt }}">{{ opt }}</option>
+              
+              {% endfor %}
+	 </datalist>
+      <h1>{{test}}</h1>
+      <!--
+      <input type="text" id="m1" class="fadeIn second" name="local" placeholder="localisation" style="display: none;" value="">
+      <input type="text" id="m2" class="fadeIn second" name="lang" placeholder="language" style="display: none;" value="eu">
+      <input id="m3" class="fadeIn second" name="count" placeholder="number of tweets" style="display: none;" type="number" value=100>
+      <input id="m4" class="fadeIn second" name="date_s" placeholder="start date" style="display: none;" type="date">
+-->
+      <button  type="submit">
+       <!--a href="slide" style="color: #fff;"-->
+        <ul>
+          <li>COMPARE</li>
+        </ul>
+      </button>
+        
+     
+          </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover fadeIn second" onclick="adv_ser()" id="advnc_btn" >advanced search</a>
+    </div>
+
+  </div>
+</div>
+
+
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="page-section" id="features">
+    <div class="container">
+      <p class="text-muted mb-5">This is why internet users use Aircompare to compare free airline companies, whether they are looking for low cost or full service airline</p>
+      <hr class="divider my-4">
+      <div class="row" id="#features">
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-4x fa-stopwatch text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Fast</h3>
+            <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-4x fa-sync-alt text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Up to Date</h3>
+            <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-4x fa-globe text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Global</h3>
+            <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-4x fa-comments-dollar text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Free</h3>
+            <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <div class="row">
+        <div class="col-md-4" >
+          <h1><span class="counter">4697</span></h1>
+          <h3>Airline</h3>
+          <i class="fas fa-plane-departure"></i>
+         </div> 
+        <div class="col-md-4">
+          <h1><span class="counter">12,218</span></h1>
+          <h3>Total tweets analyzed</h3>
+          <i class="fab fa-twitter"></i>
+          </div>
+        <div class="col-md-4">
+          <h1><span class="counter">63,075</span></h1>
+          <h3>User</h3>
+          <i class="fas fa-users"></i>
+          </div>
+      </div>
+    </div>
+        </section>
+
+
+  <!-- Call to Action Section -->
+  <section class="page-section bg-dark text-white" id="why">
+    <div class="container text-center" >
+      <h2 class="mb-4">Find the best airlines</h2>
+      <p class="text-muted mb-5">After clicking on " COMPARE NOW ", select the airline of your choice. And don't forget that with Aircompare, you can also compare between several airlines. The airline comparator Aircompare compares the reactions and opinions of Twitter users on more than 600 popular airlines such as Air France, Ryanair, easyJet, Transavia, Vueling or Aigle Azur. For each search, Other filters are available for more specific results such as: location, date or language.</p>
+      <p class="text-muted mb-5">The results you see on our comparator never vary based on your searches, regardless of the number of searches performed. We do not use cookies to adjust results. The comparison is based on fresh tweets from users around the world.This application was conceived by senior students of computer science department of Cadi Ayyad university to help people live the best travelling experience by offering them the best comparator</p>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section class="page-section" >
+    <div class="container" id="#about">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center" >
+          <h2 class="mt-0" id="about">Who are we?</h2>
+          <hr class="divider my-4">
+          <p class="text-muted mb-5">Because we believe that people don't take trip, trips take people ; our application unables you to compare between the different airlines companies regarding airlines quality standards , consumers feedback and several aspects in order to make the best choice and wonder the world. This application was conceived by senior students of computer science departement of UCA's university to help customers live the best travelling experience by offering them the best airlines companies comparator </p>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+        </div>
+        <div class="col-lg-4 mr-auto text-center">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  
+
+
+
+  <footer class="footer-distributed">
+  
+              <div class="footer-left">
+  
+                <a class="navbar-brand js-scroll-trigger" style="color: white;" href="#page-top">Aircompare</a>
+  
+                 
+  
+                  <p class="footer-company-name">Aircompare &copy; 2020</p>
+              </div>
+  
+              <div class="footer-center">
+  
+                  <div>
+                    <i class="fas fa-map-marker-alt"></i>
+                      <p><span>MHAMID </span> MOROCCO MARRAKESH </p>
+                  </div>
+  
+                  <div>
+                    <i class="fas fa-phone"></i>
+                      <p>+1.555.555.5555</p>
+                  </div>
+  
+                  <div>
+                    <i class="fas fa-envelope"></i>
+                      <p><a href="mailto:support@company.com">support@aircompare.com</a></p>
+                  </div>
+  
+              </div>
+  
+              <div class="footer-right">
+  
+                  <p class="footer-company-about">
+                      <span>About the project</span>
+                      Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+                  </p>
+  
+                  <div class="footer-icons">
+  
+                      <a href="#"><i class="fab fa-facebook"></i></a>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                      <a href="#"><i class="fab fa-linkedin"></i></a>
+                      <a href="#"><i class="fab fa-github"></i></a>
+  
+                  </div>
+  
+              </div>
+  
+          </footer>
+  
+  
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/static/vendor/jquery/jquery.min.js"></script>
+  <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="/static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="/static/js/creative.js"></script>
+
+  <script src="/static/js/awesomplete.js" async></script>
+
+  <script>
+  function adv_ser() {
+  var test = document.getElementById("m1");
+  var btnText = document.getElementById("advnc_btn");
+
+  if (m1.style.display === "none" ) {
+    m1.style.display = "inline";
+    m2.style.display = "inline";
+    m3.style.display = "inline";
+    m4.style.display = "inline";
+    m5.style.display = "inline";
+    btnText.innerHTML = "Less options"; 
+  } else {
+    m1.style.display = "none";
+    m2.style.display = "none";
+    m3.style.display = "none";
+    m4.style.display = "none";
+    m5.style.display = "none";
+    btnText.innerHTML = "More options"; 
+    moreText.style.display = "inline";
+  }
+}
+
+
+
+AwesompleteUtil.start('#air-name',
+   {
+    convertInput: function(input) { return input.replace(/[,;]\s*$/, '').match(/[^,;]*$/)[0].trim().toLowerCase(); }
+   },
+   {
+    minChars: 2, 
+    replace: function(data) { 
+      var text=data.value; 
+      this.input.value = this.input.value.match(/^.+[,;]\s*|/)[0] + text + ', ';
+    },
+    filter: function(data, input) {
+      return Awesomplete.FILTER_CONTAINS(data, input.match(/[^,;]*([,;]\s*)?$/)[0]);
+    },
+    item: function(text, input) {
+      return AwesompleteUtil.itemContains(text, input.match(/[^,;]*([,;]\s*)?$/)[0]); 
+    }
+   }
+  );
+
+</script>
+<script src="static/jquery.flexdatalist.min.js"></script>
+	<script src="static/jquery.flexdatalist.js"></script>
+</body>
+<script>
+	$('.flexdatalist').flexdatalist({
+    
+});
+</script>
+</html>

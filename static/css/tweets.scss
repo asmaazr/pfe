@@ -1,0 +1,219 @@
+$color-twitter:#1B95E0;
+$color-grey:#999;
+$color-dark:#000;
+$color-white:#fff;
+$color-light:#eee;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+}
+ul{
+  list-style:none;
+}
+a{
+  text-decoration: none;
+}
+/***************/
+.twitter-wrap{
+    display:grid;
+    grid-template-columns: 20% 50% 30%;
+    position:relative;
+}
+.side-left{
+    border-right:1px solid $color-light;
+    position:fixed;
+    height:100%;
+    width:20%;
+    text-align: right;
+    z-index: 1;
+}
+.menu{
+    .menu-item{
+        padding:0px 20px;
+        margin-bottom:0px;
+
+        .menu-link{
+               width: 55px;
+    height: 55px;
+    display: block;
+    text-align: center;
+    border-radius: 50%;
+    margin-left: auto;
+
+            &:hover{
+                background-color:lighten($color-twitter,40%);
+                i{
+                    color:$color-twitter;
+                }
+                &.box{
+                    display: block !important;
+                }
+            }
+
+            i{
+              color:$color-dark;
+              font-size:25px;
+              line-height:55px;
+            }
+
+            &.active{
+              i{
+                color:$color-twitter;
+              }
+            }
+        }
+  
+        .box{
+            display: none;
+            padding:20px;
+            position:absolute;
+            box-shadow:0px 0px 10px #ccc;
+            background-color:#fff;
+            margin-top:-240px;
+            margin-left: 116px;
+            width:300px;
+            border-radius: 10px;
+            text-align: left;
+            z-index: 9;
+
+            .name{
+              font-size:16px;
+              font-weight:600;
+              margin-top:5px;
+            }
+
+            .username{
+              color:$color-grey;
+            }
+
+            .bio{
+                margin-top:10px;
+                margin-bottom:10px; 
+            }
+
+            .folow{
+                display:flex;
+                a{
+                    display: inline-block;
+                    margin-right: 10px;
+                    color:$color-grey;
+                    span{
+                       color:$color-dark !important;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+   
+        &:hover{
+            .user-img-30{
+                border:2px solid $color-twitter;
+              }
+            .box{
+              display: block;
+              
+            }
+        }
+    }
+}
+
+.user-img-30{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  margin-top:12px;
+   border:2px solid $color-white;
+  
+}
+.user-img-40{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+}
+
+
+.add-twit{
+  background-color: $color-twitter;
+  margin-top: 20px;
+  i{
+    color:$color-white !important;
+  }
+  &:hover{
+   background-color: darken($color-twitter,10%) !important;
+  }
+}
+
+//*********************
+.side-main{
+ border-right:1px solid $color-light;
+ position: absolute;
+  width:50%; 
+  height:100%;
+   margin-left: 20%;
+   background-color: $color-light;
+   z-index:- 1;
+   .link-home{
+     font-weight: 500;
+     color:$color-dark;
+     font-size: 20px;
+   }
+   .write-twit{
+     margin-top: 60px;
+     padding: 20px 10px;
+     display: flex;
+     background-color: $color-white;
+
+     img{
+       margin-bottom: 20px;
+     }
+     textarea{
+       border:0;
+       color:$color-grey;
+       padding: 10px;
+       width:100%;
+       font-size: 20px;
+       outline: 0 none;
+     }
+   }
+}
+
+.top-fixed{
+  position: fixed;
+  top:0;
+  border-bottom:1px solid $color-light;
+  border-right:1px solid $color-light;
+  padding: 20px 10px;
+  height: 60px;
+  width: 50%;
+  background-color: $color-white;
+}
+
+/**************************/
+.side-right{
+     width:30%;
+     border-left:1px solid $color-light;
+     padding: 10px 5px;
+     right:0;
+     position: absolute;
+     
+}
+
+.search-form{
+  background-color: $color-light;
+  padding: 10px 20px;
+  border-radius: 30px;
+  input{
+    border:0;
+    background-color: $color-light;
+    color:$color-grey;
+    font-size: 14px;
+
+  }
+  i{
+     color:$color-grey;
+  }
+}
