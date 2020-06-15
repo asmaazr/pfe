@@ -1,2 +1,0 @@
-# To use the app
-
