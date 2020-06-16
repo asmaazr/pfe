@@ -10,7 +10,6 @@ This is an open source application that unables you to compare between the diffe
 
 
 
-
 ### Installation
 
 
