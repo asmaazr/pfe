@@ -1,5 +1,9 @@
 # Aircompare
 
+
+<img src="static/img/plane.jpg" alt="drawing" style="width:100px;height= 100px"/>
+
+
 This is an open source application that unables you to compare between the different airlines companies regarding airlines quality standards , consumers feedback and several aspects in order to make the best choice and wonder the world. This application was conceived by senior students of computer science departement of UCA's university to help customers live the best travelling experience by offering them the best airlines companies comparator.
 
 <img src="static/img/plane.jpg" alt="drawing" style="width:100px;height= 100px"/>
