@@ -2,7 +2,7 @@
 
 This is an open source application that unables you to compare between the different airlines companies regarding airlines quality standards , consumers feedback and several aspects in order to make the best choice and wonder the world. This application was conceived by senior students of computer science departement of UCA's university to help customers live the best travelling experience by offering them the best airlines companies comparator.
 
-![alt text](https://github.com/asmaazr/pfe/blob/master/__MACOSX/static/img/._bg-masthead.jpg?raw=true)
+![alt text](static/img/._bg-masthead.jpg?raw=true)
 
 
 
