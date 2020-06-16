@@ -18,6 +18,12 @@ All the installation requierements are found in the requierements.txt file,too l
 ```sh
 $ python install -r requierements.txt
 ```
+##Lanching the app
+To run the app just copy paste the command below in your command line:
+```sh
+$ py views.py
+```
+
 
 Verify the deployment by navigating to your server address in your preferred browser.
 
