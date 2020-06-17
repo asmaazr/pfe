@@ -18,6 +18,7 @@ import plotly.express as px
 from testw import *
 from tweetEmbed import *
 from flask import Markup
+from localisation import *
 
 app = Flask(__name__)
 
@@ -179,6 +180,16 @@ def data():
         cursor2 = connection.cursor()
         cursor2.execute(sql_select_id_tweet)
         records2 = cursor2.fetchall()
+        sql_select_location = "SELECT DISTINCT location FROM details WHERE location IS NOT NULL"
+        cursor3 = connection.cursor()  
+        cursor3.execute(sql_select_location) 
+        map = cursor3.fetchall()
+        list_countries = [item for t in map for item in t]
+        countries = []
+        for c in list_countries:
+            countries.append(get_loc(c))
+        cleaned_count = [x for x in countries if x is not None]
+        geo = pd.DataFrame(cleaned_count)
         data = []
         for tweet_id in records2 :
             tw = embedTw(tweet_id[0])
@@ -194,7 +205,7 @@ def data():
             cursor.close()
             print("MySQL connection is closed")
   
-    return render_template('kiki.html',dt= blabla,ff = par,values = val,wik =wiki,code = data)
+    return render_template('kiki.html',dt= blabla,ff = par,values = val,wik =wiki,code = data,map= geo.to_csv(index=False) )
     
 
 

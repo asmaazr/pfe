@@ -1,5 +1,6 @@
 import tweepy
 import re
+import pycountry
 # Salah's keys 
 #access_token = "1030804524649340929-uYOzvbWSRXuo9OVjXS64jJZBlFXWDR"
 #access_token_secret = "j5dunyBRvuLnrrUp4mtA0AMHLXqG4TId1aa29c3KVqjyx"
@@ -31,7 +32,10 @@ def stream_tweets(search_terms):
                 tweet_details['created'] = tweet.created_at.strftime("%d/%m/%Y, %H:%M:%S")
                 tweet_details['location'] = tweet.user.location
                 tweet_details['followers'] = tweet.user.followers_count
-                tweet_details['is_user_verified'] = tweet.user.verified        
+                tweet_details['is_user_verified'] = tweet.user.verified
+                for country in pycountry.countries:
+                    if country.name in tweet.user.location:
+                      tweet_details['location'] = country.name        
                 data.append(tweet_details)
         
     return data
