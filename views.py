@@ -79,52 +79,8 @@ def index():
     
     return render_template('index.html' ,data = airline_name)
 
-'''
-@app.route('/embed')
-def embed():
-    try:
-        connection = mysql.connector.connect(host='localhost',
-                                            database='projet_dyal_pfe',
-                                            user='root',
-                                            password='mercurycreatures12345')
 
 
-        sql_select_Query = "SELECT id_tweet from details limit 25"
-        cursor = connection.cursor()
-        cursor.execute(sql_select_Query)
-        records = cursor.fetchall()
-        
-            
-    except Error as e:
-        print("Error reading data from MySQL table", e)
-    finally:
-        if (connection.is_connected()):
-            connection.close()
-            cursor.close()
-            print("MySQL connection is closed")
-    data = []
-    for tweet_id in records :
-        tw = embedTw(tweet_id[0])
-        data.append(Markup(tw))
-        
-    
-    return render_template('tweetEmbed.html',code = data )
-
-
-
-'''
-@app.route('/result')
-def result():
-    df = pd.read_csv('test.csv')
-    data = [
-        go.Bar(
-            x=df['sent'], # assign x as the dataframe column 'x'
-            y=df['airline']
-        )
-    ]
-    graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
-
-    return render_template('result.html',plot=graphJSON)
 
 
 @app.route('/data')
@@ -180,16 +136,7 @@ def data():
         cursor2 = connection.cursor()
         cursor2.execute(sql_select_id_tweet)
         records2 = cursor2.fetchall()
-        sql_select_location = "SELECT DISTINCT location FROM details WHERE location IS NOT NULL"
-        cursor3 = connection.cursor()  
-        cursor3.execute(sql_select_location) 
-        map = cursor3.fetchall()
-        list_countries = [item for t in map for item in t]
-        countries = []
-        for c in list_countries:
-            countries.append(get_loc(c))
-        cleaned_count = [x for x in countries if x is not None]
-        geo = pd.DataFrame(cleaned_count)
+        
         data = []
         for tweet_id in records2 :
             tw = embedTw(tweet_id[0])
@@ -205,30 +152,25 @@ def data():
             cursor.close()
             print("MySQL connection is closed")
   
-    return render_template('kiki.html',dt= blabla,ff = par,values = val,wik =wiki,code = data,map= geo.to_csv(index=False) )
-    
-
-
-
-
-
-@app.route('/slide')
-def slide():
-    #search_term = session.get("airline",None)
-    #tweets = stream_tweets(search_term) 
+    return render_template('kiki.html',dt= blabla,ff = par,values = val,wik =wiki,code = data )
+@app.route('/mapl')
+def mapl():
     try:
         connection = mysql.connector.connect(host='localhost',
                                             database='projet_dyal_pfe',
                                             user='root',
                                             password='mercurycreatures12345')
-
-
-        sql_select_Query = "SELECT tweet from details"
         cursor = connection.cursor()
-        cursor.execute(sql_select_Query)
-        records = cursor.fetchall()
-        
-            
+        sql_select_location = "SELECT DISTINCT location FROM details WHERE location IS NOT NULL"
+        cursor3 = connection.cursor()  
+        cursor3.execute(sql_select_location) 
+        map = cursor3.fetchall()
+        list_countries = [item for t in map for item in t]
+        countries = []
+        for c in list_countries:
+            countries.append(get_loc(c))
+        cleaned_count = [x for x in countries if x is not None]
+        geo = pd.DataFrame(cleaned_count)
     except Error as e:
         print("Error reading data from MySQL table", e)
     finally:
@@ -236,7 +178,12 @@ def slide():
             connection.close()
             cursor.close()
             print("MySQL connection is closed")
-        return render_template('slide.html',data = records)
+    return  geo.to_csv(index=False) 
+
+
+
+
+
     
 
 

@@ -11,3 +11,7 @@ def get_loc(country):
         return [float(i) for i in lst]
     except IndexError:
         return
+
+
+
+        
