@@ -19,10 +19,10 @@ This is an open source application that unables you to compare between the diffe
 ### Installation
 
 
-All the installation requierements are found in the requierements.txt file,too lazy to install them ,don't worry we got your back just run the command below : 
+All the installation requirements are found in the requierements.txt file,too lazy to install them ,don't worry we got your back just run the command below : 
 
 ```sh
-$ python install -r requierements.txt
+$ python install -r requirements.txt
 ```
 ### Lanching the app
 To run the app just copy paste the command below in your command line:
