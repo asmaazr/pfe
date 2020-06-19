@@ -24,6 +24,15 @@ All the installation requirements are found in the requierements.txt file,too la
 ```sh
 $ pip install -r requirements.txt
 ```
+
+### Database configuration 
+Copy paste the code below in your connection_db.py file and change the values to fit your database configuration :
+```sh
+host='yourlocalhost'
+database='yourDataBase'
+user='root'
+password='yourpassword'
+```
 ### Lanching the app
 To run the app just copy paste the command below in your command line:
 ```sh
