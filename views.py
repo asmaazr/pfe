@@ -30,8 +30,8 @@ def index():
     # create sqlalchemy engine
     engine = create_engine("mysql+pymysql://{user}:{pw}@localhost/{db}"
                         .format(user="root",
-                                pw="mercurycreatures12345",
-                                db="projet_dyal_pfe"))
+                                pw="",
+                                db="aircompare"))
     
     #ar = request.form.getlist('airline')
     ar = request.args.get('airline')
@@ -87,9 +87,9 @@ def index():
 def data():
     try:
         connection = mysql.connector.connect(host='localhost',
-                                            database='projet_dyal_pfe',
+                                            database='aircompare',
                                             user='root',
-                                            password='mercurycreatures12345')
+                                            password='')
 
         ##     Labels   ##
         sql_select_Query = "SELECT distinct airline from details order by airline"
@@ -142,7 +142,12 @@ def data():
             tw = embedTw(tweet_id[0])
             data.append(Markup(tw))
         
-
+        sql_count_tw = "SELECT COUNT(id_tweet) FROM details"
+        cursor3 = connection.cursor()
+        cursor3.execute(sql_count_tw)
+        records3 = cursor3.fetchall()
+        for rr in records3:
+            nb_tw = rr[0]
 
     except Error as e:
         print("Error reading data from MySQL table", e)
@@ -152,14 +157,16 @@ def data():
             cursor.close()
             print("MySQL connection is closed")
   
-    return render_template('kiki.html',dt= blabla,ff = par,values = val,wik =wiki,code = data )
+    return render_template('kiki.html',dt= blabla,ff = par,values = val,wik =wiki,code = data,nb_tw = nb_tw)
+
+
 @app.route('/mapl')
 def mapl():
     try:
         connection = mysql.connector.connect(host='localhost',
-                                            database='projet_dyal_pfe',
+                                            database='aircompare',
                                             user='root',
-                                            password='mercurycreatures12345')
+                                            password='')
         cursor = connection.cursor()
         sql_select_location = "SELECT DISTINCT location FROM details WHERE location IS NOT NULL"
         cursor3 = connection.cursor()  

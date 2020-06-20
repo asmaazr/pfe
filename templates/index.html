@@ -115,7 +115,7 @@ div.awesomplete .awe-not-found {border: 2px solid red}
     <!-- COMPARE Form -->
     <form method="GET">
      <!--<input  id="air-name" name="airline"  placeholder="airline name" type="text" class='flexdatalist'  multiple='multiple' data-list="{{data}}" style="display: initial;"/>--> 
-      <input type='text' placeholder="Select at least one airline..." class='flexdatalist'  multiple list="air" type="text" name='airline'>
+      <input type='text' placeholder="Select your airline" class='flexdatalist'  multiple list="air" type="text" name='airline'>
 	 <datalist id="air">
               {% for opt in data %}
               <option value="{{ opt }}">{{ opt }}</option>
@@ -128,7 +128,8 @@ div.awesomplete .awe-not-found {border: 2px solid red}
       <input type="text" id="m2" class="fadeIn second" name="lang" placeholder="language" style="display: none;" value="eu">
       <input id="m3" class="fadeIn second" name="count" placeholder="number of tweets" style="display: none;" type="number" value=100>
       <input id="m4" class="fadeIn second" name="date_s" placeholder="start date" style="display: none;" type="date">
--->
+-->   
+
       <button  type="submit">
        <!--a href="slide" style="color: #fff;"-->
         <ul>
@@ -141,7 +142,7 @@ div.awesomplete .awe-not-found {border: 2px solid red}
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover fadeIn second" onclick="adv_ser()" id="advnc_btn" >advanced search</a>
+      <a class="underlineHover fadeIn second" onclick="adv_ser()" id="advnc_btn" >*maximum 3 airlines</a>
     </div>
 
   </div>
@@ -156,59 +157,61 @@ div.awesomplete .awe-not-found {border: 2px solid red}
 
   <!-- Services Section -->
   <section class="page-section" id="features">
-    <div class="container">
-      <p class="text-muted mb-5">This is why internet users use Aircompare to compare free airline companies, whether they are looking for low cost or full service airline</p>
+    <div class="">
+      <div class="row">
+        <div class="col-md-4" >
+          <h1><span class="counter">752</span></h1>
+          <h3>Airline</h3>
+          <i class="fas fa-plane-departure" style="font-size:  3rem !important;"></i>
+         </div> 
+        <div class="col-md-4">
+          <h1><span class="counter">12,218</span></h1>
+          <h3>Total tweets analyzed</h3>
+          <i class="fab fa-twitter" style="font-size:  3rem !important;"></i>
+          </div>
+        <div class="col-md-4">
+          <h1><span class="counter">1,075</span></h1>
+          <h3>User</h3>
+          <i class="fas fa-users" style="font-size:  3rem !important;"></i>
+          </div>
+      </div>
+    </div>
+    <div class="container" style="padding-top: 5rem;">
+      <p class="text-muted mb-5">This is why internet users use Aircompare to compare airline companies, whether they are looking for low cost or full service airline</p>
       <hr class="divider my-4">
       <div class="row" id="#features">
         <div class="col-lg-3 col-md-6 text-center">
           <div class="mt-5">
-            <i class="fas fa-4x fa-stopwatch text-primary mb-4"></i>
+            <i class="fas fa-4x fa-stopwatch text-primary mb-4" style="font-size:  3rem !important;"></i>
             <h3 class="h4 mb-2">Fast</h3>
-            <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
+            <p class="text-muted mb-0">Our models are updated regularly to keep them bug free!</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 text-center">
           <div class="mt-5">
-            <i class="fas fa-4x fa-sync-alt text-primary mb-4"></i>
+            <i class="fas fa-4x fa-sync-alt text-primary mb-4" style="font-size:  3rem !important;"></i>
             <h3 class="h4 mb-2">Up to Date</h3>
             <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 text-center">
           <div class="mt-5">
-            <i class="fas fa-4x fa-globe text-primary mb-4"></i>
+            <i class="fas fa-4x fa-globe text-primary mb-4" style="font-size:  3rem !important;"></i>
             <h3 class="h4 mb-2">Global</h3>
-            <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+            <p class="text-muted mb-0">Compare and make a choice based on global airlines companies.
+            </p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 text-center">
           <div class="mt-5">
-            <i class="fas fa-4x fa-comments-dollar text-primary mb-4"></i>
+            <i class="fas fa-4x fa-comments-dollar text-primary mb-4" style="font-size:  3rem !important;"></i>
             <h3 class="h4 mb-2">Free</h3>
             <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="">
-      <div class="row">
-        <div class="col-md-4" >
-          <h1><span class="counter">4697</span></h1>
-          <h3>Airline</h3>
-          <i class="fas fa-plane-departure"></i>
-         </div> 
-        <div class="col-md-4">
-          <h1><span class="counter">12,218</span></h1>
-          <h3>Total tweets analyzed</h3>
-          <i class="fab fa-twitter"></i>
-          </div>
-        <div class="col-md-4">
-          <h1><span class="counter">63,075</span></h1>
-          <h3>User</h3>
-          <i class="fas fa-users"></i>
-          </div>
-      </div>
-    </div>
+    
         </section>
 
 
@@ -216,8 +219,8 @@ div.awesomplete .awe-not-found {border: 2px solid red}
   <section class="page-section bg-dark text-white" id="why">
     <div class="container text-center" >
       <h2 class="mb-4">Find the best airlines</h2>
-      <p class="text-muted mb-5">After clicking on " COMPARE NOW ", select the airline of your choice. And don't forget that with Aircompare, you can also compare between several airlines. The airline comparator Aircompare compares the reactions and opinions of Twitter users on more than 600 popular airlines such as Air France, Ryanair, easyJet, Transavia, Vueling or Aigle Azur. For each search, Other filters are available for more specific results such as: location, date or language.</p>
-      <p class="text-muted mb-5">The results you see on our comparator never vary based on your searches, regardless of the number of searches performed. We do not use cookies to adjust results. The comparison is based on fresh tweets from users around the world.This application was conceived by senior students of computer science department of Cadi Ayyad university to help people live the best travelling experience by offering them the best comparator</p>
+      <p class="text-muted mb-5" >The airline comparator Aircompare compares the reactions and opinions of Twitter users on more than 600 popular airlines such as Air France, Ryanair, easyJet, Transavia…</p>
+      <p class="text-muted mb-5" >The results you see on our comparator never vary based on your searches, regardless of the number of searches performed. We do not use cookies to adjust results. The comparison is based on fresh tweets from users around the world.The performance of our models is 80%</p>
     </div>
   </section>
   
@@ -228,7 +231,7 @@ div.awesomplete .awe-not-found {border: 2px solid red}
         <div class="col-lg-8 text-center" >
           <h2 class="mt-0" id="about">Who are we?</h2>
           <hr class="divider my-4">
-          <p class="text-muted mb-5">Because we believe that people don't take trip, trips take people ; our application unables you to compare between the different airlines companies regarding airlines quality standards , consumers feedback and several aspects in order to make the best choice and wonder the world. This application was conceived by senior students of computer science departement of UCA's university to help customers live the best travelling experience by offering them the best airlines companies comparator </p>
+          <p class="text-muted mb-5" style="text-align: justify !important;">Because we believe that people don't take trip, trips take people ; our application unables you to compare between the different airlines companies regarding airlines quality standards , consumers feedback and several aspects in order to make the best choice and wonder the world. This application was conceived by senior students of computer science departement of UCA's university to help customers live the best travelling experience by offering them the best airlines companies comparator </p>
           </div>
       </div>
       <div class="row">
@@ -260,12 +263,12 @@ div.awesomplete .awe-not-found {border: 2px solid red}
   
                   <div>
                     <i class="fas fa-map-marker-alt"></i>
-                      <p><span>MHAMID </span> MOROCCO MARRAKESH </p>
+                      <p><span></span> MOROCCO MARRAKESH </p>
                   </div>
   
                   <div>
                     <i class="fas fa-phone"></i>
-                      <p>+1.555.555.5555</p>
+                      <p>+212 610-646228</p>
                   </div>
   
                   <div>
@@ -279,7 +282,7 @@ div.awesomplete .awe-not-found {border: 2px solid red}
   
                   <p class="footer-company-about">
                       <span>About the project</span>
-                      Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+                      Aircompare provides comparison of airlines, and insights to help you plan your next trip.
                   </p>
   
                   <div class="footer-icons">
