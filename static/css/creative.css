@@ -582,7 +582,7 @@ pre code {
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1140px;
+    max-width: 90rem;
   }
 }
 
@@ -597,6 +597,8 @@ pre code {
 .row {
   display: flex;
   flex-wrap: wrap;
+  margin-right: 0px !important;
+margin-left: 0px !important;
   
 }
 
@@ -3976,7 +3978,7 @@ input[type="button"].btn-block {
 
 .navbar-brand {
   display: inline-block;
-padding-top: 1rem;
+/*padding-top: 1rem;*/
 padding-bottom: 0.3125rem;
 margin-right: 1rem;
 font-size: 2rem;
@@ -9441,7 +9443,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .text-muted {
   color: #6c757d !important;
-  text-align: center !important;
+  text-align: center ;
 }
 
 .text-black-50 {
@@ -9564,6 +9566,9 @@ body,
 html {
   width: 100%;
   height: 100%;
+  /*overflow-y: scroll;
+overflow-x: hidden;*/
+max-width: 100%;
 }
 
 .text-white-75 {
@@ -9595,7 +9600,7 @@ hr.light {
 }
 
 .page-section {
-  padding: 8rem 0;
+  padding: 4rem 0;
 }
 
 #mainNav {
@@ -9606,7 +9611,7 @@ hr.light {
 
 #mainNav .navbar-brand {
   font-family: 'Faster One', cursive, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1.9rem;
+  font-size: 2rem;
   color: #212529;
 }
 
@@ -9688,7 +9693,7 @@ header.masthead h1 {
   }
   header.masthead p {
     font-size: 1.4rem;
-    margin-top: 5rem;
+    margin-top: 2rem;
   }
   header.masthead h1 {
     font-size: 3rem;
@@ -9999,6 +10004,7 @@ input[type=text]:placeholder {
 
 * {
   box-sizing: border-box;
+  font-family: 'Julius Sans One', sans-serif;
 }
 
 input[type=submit]{
@@ -10433,7 +10439,6 @@ font-family: 'Julius Sans One', sans-serif;
 
 .col-md-4 {
   text-align: center;
-  padding-bottom: 50px;
   border-right: 1px dashed black;
 }
 

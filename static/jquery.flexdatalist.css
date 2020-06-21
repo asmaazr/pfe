@@ -77,6 +77,8 @@
     list-style: none;
     text-align: left;
     cursor: text;
+    display: flex;
+    align-items: center;
 }
 .flexdatalist-multiple.disabled {
     background-color: #eee;
