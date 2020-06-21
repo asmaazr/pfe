@@ -152,30 +152,49 @@
 
 
   <!-- Masthead -->
-  <header class="masthead">
+  <header class="masthead" style="background-color: #3c3c3c !important; background: none;">
     <div class="container h-100">
       
       <div class="row h-100 align-items-center justify-content-center text-center">
+<<<<<<< HEAD
         <div class="col-lg-3 " style="background-color: white; border-radius: 3%; width: 20%;">
          <p>Accuracy of these results is approximatly 80% </p>
+=======
+        <div class="col-lg-3 " style="background-color: white; border-radius: 3%; width: 50px;">
+          <i class="fas fa-cogs" style="font-size: 5rem !important;padding-top: 0.5rem;"></i>
+          <p>Accuracy of models</p> 
+          <p>80%</p>
+>>>>>>> ce461ada863dacfae6ab50d5eae4a0daa230c6a2
         </div>
         <div class="col-lg-6 align-self-baseline">
           <div class="wrapper fadeInDown">
             <div class="fadeIn first p-5">
+<<<<<<< HEAD
               <img src="/static/img/Twitter_Logo_Blue.png" style="width: 2rem;">
               <a class="navbar-brand js-scroll-trigger">Tweets</a>
+=======
+              <img src="/static/img/Twitter_Logo_Blue.png" style="width: 90px;">
+              <a class="navbar-brand js-scroll-trigger" style="color: white;font-family: 'Julius Sans One', sans-serif;">Tweets Stream</a>
+>>>>>>> ce461ada863dacfae6ab50d5eae4a0daa230c6a2
             </div>
 
 
             {% for line in code %}
-            <span class="mySlides">{{ line }} </span>
+            <span class="mySlides" style="height: 350px !important;">{{ line }} </span>
             {% endfor %}
 
           </div>
         </div>
+<<<<<<< HEAD
         <div class="col-lg-3 "  style="background-color: white; border-radius: 3%;width: 20%;"  >
           
           <p>number of tweets selected are 100</p>
+=======
+        <div class="col-lg-3 justify-content-center"  style="background-color: white; border-radius: 3%;width: 50px;"  >
+          <i class="fas fa-check" style="font-size: 5rem !important;color: green;"></i>
+          <p>Database : connected !</p>
+          <p>{{ nb_tw }}  Tweets collected</p>
+>>>>>>> ce461ada863dacfae6ab50d5eae4a0daa230c6a2
         </div>
       </div>
     </div>
@@ -264,12 +283,12 @@
 
       <div>
         <i class="fas fa-map-marker-alt"></i>
-        <p><span>MHAMID </span> MOROCCO MARRAKESH </p>
+        <p><span></span> MOROCCO MARRAKESH </p>
       </div>
 
       <div>
         <i class="fas fa-phone"></i>
-        <p>+1.555.555.5555</p>
+        <p>+212 610-646228</p>
       </div>
 
       <div>
@@ -283,9 +302,8 @@
 
       <p class="footer-company-about">
         <span>About the project</span>
-        Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus
-        vehicula sit amet.
-      </p>
+        Aircompare provides comparison of airlines, and insights to help you plan your next trip.
+    </p>
 
       <div class="footer-icons">
 
@@ -431,7 +449,7 @@
    ];
 
    var layout = {
-      width:1000,
+      width:1200,
       height:500,
      dragmode: "zoom",
      mapbox: { 

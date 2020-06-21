@@ -22,7 +22,16 @@ This is an open source application that unables you to compare between the diffe
 All the installation requirements are found in the requierements.txt file,too lazy to install them ,don't worry we got your back just run the command below : 
 
 ```sh
-$ python install -r requirements.txt
+$ pip install -r requirements.txt
+```
+
+### Database configuration 
+Copy paste the code below in your connection_db.py file and change the values to fit your database configuration :
+```sh
+host='yourlocalhost'
+database='yourDataBase'
+user='root'
+password='yourpassword'
 ```
 ### Lanching the app
 To run the app just copy paste the command below in your command line:
@@ -34,7 +43,7 @@ $ py views.py
 Verify the deployment by navigating to your server address in your preferred browser.
 
 ```sh
-127.0.0.1:8000/index
+127.0.0.1:5000/index
 ```
 
 

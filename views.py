@@ -30,9 +30,15 @@ app = Flask(__name__)
 def index():
     # create sqlalchemy engine
     engine = create_engine("mysql+pymysql://{user}:{pw}@localhost/{db}"
+<<<<<<< HEAD
                         .format(user=connection_db.user,
                                 pw=connection_db.password,
                                 db=connection_db.database))
+=======
+                        .format(user="root",
+                                pw="",
+                                db="aircompare"))
+>>>>>>> ce461ada863dacfae6ab50d5eae4a0daa230c6a2
     
     #ar = request.form.getlist('airline')
     ar = request.args.get('airline')
@@ -87,10 +93,17 @@ def index():
 @app.route('/data')
 def data():
     try:
+<<<<<<< HEAD
         connection = mysql.connector.connect(host=connection_db.host,
                                             database=connection_db.database,
                                             user=connection_db.user,
                                             password=connection_db.password)
+=======
+        connection = mysql.connector.connect(host='localhost',
+                                            database='aircompare',
+                                            user='root',
+                                            password='')
+>>>>>>> ce461ada863dacfae6ab50d5eae4a0daa230c6a2
 
         ##     Labels   ##
         sql_select_Query = "SELECT distinct airline from details order by airline"
@@ -178,6 +191,16 @@ def data():
         for tweet_id in records2 :
             tw = embedTw(tweet_id[0])
             data.append(Markup(tw))
+<<<<<<< HEAD
+=======
+        
+        sql_count_tw = "SELECT COUNT(id_tweet) FROM details"
+        cursor3 = connection.cursor()
+        cursor3.execute(sql_count_tw)
+        records3 = cursor3.fetchall()
+        for rr in records3:
+            nb_tw = rr[0]
+>>>>>>> ce461ada863dacfae6ab50d5eae4a0daa230c6a2
 
      
     except Error as e:
@@ -188,6 +211,7 @@ def data():
             cursor.close()
             print("MySQL connection is closed")
   
+<<<<<<< HEAD
     return render_template('kiki.html',dt= blabla,ff = par,values = val,wik =wiki,code = data,air= airlines,vis=vis,aspects=aspects )
 @app.route('/mapl')
 def mapl():
@@ -196,6 +220,18 @@ def mapl():
                                             database=connection_db.database,
                                             user=connection_db.user,
                                             password=connection_db.password)
+=======
+    return render_template('kiki.html',dt= blabla,ff = par,values = val,wik =wiki,code = data,nb_tw = nb_tw)
+
+
+@app.route('/mapl')
+def mapl():
+    try:
+        connection = mysql.connector.connect(host='localhost',
+                                            database='aircompare',
+                                            user='root',
+                                            password='')
+>>>>>>> ce461ada863dacfae6ab50d5eae4a0daa230c6a2
         cursor = connection.cursor()
         sql_select_location = "SELECT DISTINCT location FROM details WHERE location IS NOT NULL"
         cursor3 = connection.cursor()  
