@@ -201,7 +201,7 @@ def data():
             cursor.close()
             print("MySQL connection is closed")
   
-    return render_template('kiki.html',dt= blabla,ff = par,values = val,wik =wiki,code = data,air= airlines,vis=vis,aspects=aspects,nb_tw=nb_tw,best=best )
+    return render_template('results.html',dt= blabla,ff = par,values = val,wik =wiki,code = data,air= airlines,vis=vis,aspects=aspects,nb_tw=nb_tw,best=best )
 @app.route('/mapl')
 def mapl():
 

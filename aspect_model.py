@@ -110,7 +110,7 @@ def predict_asp(input_tw):
     tc = TextCounts()
     ct = CleanText()
 
-    model_senti = load('model_reasons.joblib') 
+    model_senti = load('reasons.joblib') 
     tweets = pd.Series(input_tw)
     df_counts_neg = tc.transform(tweets)
     df_clean_neg = ct.transform(tweets)

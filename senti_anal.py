@@ -110,7 +110,7 @@ def predict_senti(input_tw):
     tc = TextCounts()
     ct = CleanText()
 
-    model_senti = load('a7san_model.joblib') 
+    model_senti = load('model.joblib') 
     tweets = pd.Series(input_tw)
     df_counts_neg = tc.transform(tweets)
     df_clean_neg = ct.transform(tweets)
