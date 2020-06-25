@@ -115,7 +115,7 @@ def data():
             wiki_details['airline_name']=row[0]
             airlines.insert(0,row[0])
             wiki_details['summary']=wikipd(row[0])
-            wiki_details['image'] = get_wiki_image(row[0])
+            wiki_details['image'] = "https://"+get_data(row[0])
             wiki.append(wiki_details)
             print(wiki)
             for sm in range(3) :
@@ -185,7 +185,13 @@ def data():
         records3 = cursor3.fetchall()
         for rr in records3:
             nb_tw = rr[0]
-
+        
+        sql_select_best = "SELECT airline ,MAX(counted) FROM (SELECT airline ,COUNT(airline) AS counted  FROM details WHERE sentiment = 'positive' GROUP BY airline) AS counts;"
+        cursor5 = connection.cursor()
+        cursor5.execute(sql_select_best)
+        records5 = cursor5.fetchall()
+        for rr in records5:
+            best = rr[0]
      
     except Error as e:
         print("Error reading data from MySQL table", e)
@@ -195,33 +201,34 @@ def data():
             cursor.close()
             print("MySQL connection is closed")
   
-    return render_template('kiki.html',dt= blabla,ff = par,values = val,wik =wiki,code = data,air= airlines,vis=vis,aspects=aspects,nb_tw=nb_tw )
+    return render_template('kiki.html',dt= blabla,ff = par,values = val,wik =wiki,code = data,air= airlines,vis=vis,aspects=aspects,nb_tw=nb_tw,best=best )
 @app.route('/mapl')
 def mapl():
-    try:
-        connection = mysql.connector.connect(host=connection_db.host,
-                                            database=connection_db.database,
-                                            user=connection_db.user,
-                                            password=connection_db.password)
-        cursor = connection.cursor()
-        sql_select_location = "SELECT DISTINCT location FROM details WHERE location IS NOT NULL"
-        cursor3 = connection.cursor()  
-        cursor3.execute(sql_select_location) 
-        map = cursor3.fetchall()
-        list_countries = [item for t in map for item in t]
-        countries = []
-        for c in list_countries:
-            countries.append(get_loc(c))
-        cleaned_count = [x for x in countries if x is not None]
-        geo = pd.DataFrame(cleaned_count)
-    except Error as e:
-        print("Error reading data from MySQL table", e)
-    finally:
-        if (connection.is_connected()):
-            connection.close()
-            cursor.close()
-            print("MySQL connection is closed")
-    return  geo.to_csv(index=False) 
+
+    connection = mysql.connector.connect(host=connection_db.host,
+                                        database=connection_db.database,
+                                        user=connection_db.user,
+                                        password=connection_db.password)
+    cursor = connection.cursor()
+    sql_select_location = "SELECT DISTINCT location FROM details WHERE location IS NOT NULL"
+    curs3 = connection.cursor()  
+    curs3.execute(sql_select_location) 
+    map = curs3.fetchall()
+    list_countries = [item for t in map for item in t]
+    countries = []
+    for c in list_countries:
+        countries.append(get_loc(c))
+    cleaned_count = [x for x in countries if x is not None]
+    geo = pd.DataFrame(cleaned_count)
+    print(geo)
+
+   
+
+    return  geo.to_csv(index=False)         
+    
+    
+        
+     
 
 
 

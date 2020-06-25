@@ -12,6 +12,4 @@ def get_loc(country):
     except IndexError:
         return
 
-
-
         

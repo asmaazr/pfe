@@ -48,6 +48,36 @@
   <script src="//nico-amsterdam.github.io/awesomplete-util/js/awesomplete.min.js"></script>
   <script src="//nico-amsterdam.github.io/awesomplete-util/js/awesomplete-util.min.js"></script>
   <style>
+    .style_prevu_kit
+{
+    display:inline-block;
+    border:0;
+    width:100px;
+    height:200px;
+    position: relative;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1); 
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1); 
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 200ms ease-in;
+    transform: scale(1);   
+
+}
+.style_prevu_kit:hover
+{
+    box-shadow: 0px 0px 150px #000000;
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.5);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.5);   
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.5);
+    transition: all 200ms ease-in;
+    transform: scale(1.5);
+}
     /* DEMO-SPECIFIC STYLES */
     .typewriter h1 {
       color: #333;
@@ -132,18 +162,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <!--
-        <ul class="navbar-nav ml-auto my-2 my-lg-0">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#slide">Slide</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#mydiv">Results</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About us</a>
-          </li>
-          -->
+       
         </ul>
       </div>
     </div>
@@ -170,7 +189,7 @@
 
 
             {% for line in code %}
-            <span class="mySlides" style="height: 350px !important;">{{ line }} </span>
+            <span class="mySlides" style="height: 350px !important; width: 500px !important;">{{ line }} </span>
             {% endfor %}
 
           </div>
@@ -188,16 +207,40 @@
   <section class="page-section">
     <div class="container h-100">
     <div class="row h-100 ">
-    {% for airline in wik %}
-    <div class="col" > 
-     <!-- <img src="{{ airline['image'] }}" style="width: 100px;">-->
-     <h1 style="color:#333;" class="justify-content-center">{{ airline['airline_name'] }}</h1>
+   
+   
+     
       
-    </div>
-  {% endfor %}
+         {% for airline in wik %}
+         
+        <div class="col style_prevu_kit " style="background-color:#34cceb; border-radius: 3%;margin: 30px;overflow: hidden;">
+   <div class="justify-content-center p-2" style="text-align: center;" ><img src= "{{ airline['image'] }}" alt="" style="width: 90px; "> </div>
+       
+         
+          
+          <p class="p-3">{{ airline['summary'] }}</p>
+        </div>
+    
+          {% endfor %}
+      
+    
+  
 </div>
+
+
+<div class="wrapper fadeInDown">
+  <div class="fadeIn first p-5 " >
+    <img src="/static/img/plane.png" style="width: 60px;">
+    <a class="navbar-brand js-scroll-trigger" style="color: #333;font-family: 'Julius Sans One', sans-serif;">the best airline based on our algorithms is </a>
+  </div>
+
+
+   <h2>{{ best }}</h2>
 </div>
-    <div class="container">
+
+
+</div>
+    <div class="container p-5">
       <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
         
@@ -217,12 +260,13 @@
 
 
       </div>
+      
     </div>
-    <div class="container"></div>
+    <div class="container text-center"><p>Only the tweets with exact geo-location are considered in this map .</p></div>
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
         
-         <p>Only the tweets with exact geo-location are considered in this map .</p>
+         
          <div id="tester" class="p-3"  >
 
 
@@ -318,7 +362,7 @@
   <script src="/static/js/creative.js"></script>
 
   <script src="/static/js/awesomplete.js" async></script>
-
+  
   <script>
     function adv_ser() {
       var test = document.getElementById("m1");
@@ -410,50 +454,7 @@
 
 
   </script>
-<script>
-  //draw the map
-  Plotly.d3.csv(
-"\mapl", function(err, rows) {
-   function unpack(rows, key) {
-     return rows.map(function(row) {
-       return row[key];
-     });
-   }
 
-   var data = [
-     {
-       type: "scattermapbox",
-       lon: unpack(rows, 1),
-       lat: unpack(rows, 0),
-       mode:'markers',
-               marker: {
-                size:8
-               },
-     }
-   ];
-
-   var layout = {
-      width:1200,
-      height:500,
-     dragmode: "zoom",
-     mapbox: { 
-       style: "light",
-      zoom: 0 },
-     margin: { r: 0, t: 0, b: 0, l: 0 },
-     
-       };
-       
-
-       Plotly.setPlotConfig({
-           mapboxAccessToken: "pk.eyJ1Ijoic292aXgiLCJhIjoiY2s3OW42Y2k4MGJ1MDNmcnozdTF2dXNncCJ9.hYCCPqJ3qkBgj7Y8MCo8_w"
-           })
-
-   Plotly.newPlot("tester", data, layout);
- }
-);
-
-
-</script>
 <script>
   //draw the right plot (radar)
   var airl = {{ air | tojson }};
@@ -483,6 +484,50 @@
  }
 
 Plotly.newPlot("aspect", data, layout)
+</script>
+<script>
+  //draw the map
+  Plotly.d3.csv(
+"/mapl", function(err, rows) {
+   function unpack(rows, key) {
+     return rows.map(function(row) {
+       return row[key];
+     });
+   }
+
+   var data = [
+     {
+       type: "scattermapbox",
+       lon: unpack(rows, 1),
+       lat: unpack(rows, 0),
+       mode:'markers',
+               marker: {
+                size:8
+               },
+     }
+   ];
+
+   var layout = {
+     width:1200,
+     height : 600,
+     dragmode: "zoom",
+     mapbox: { 
+       style: "light",
+      zoom: 0 },
+     margin: { r: 0, t: 0, b: 0, l: 0 },
+     
+       };
+       
+
+       Plotly.setPlotConfig({
+           mapboxAccessToken: "pk.eyJ1Ijoic292aXgiLCJhIjoiY2s3OW42Y2k4MGJ1MDNmcnozdTF2dXNncCJ9.hYCCPqJ3qkBgj7Y8MCo8_w"
+           })
+
+   Plotly.newPlot("tester", data, layout);
+ }
+);
+
+
 </script>
 
 </html>

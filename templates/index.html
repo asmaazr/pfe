@@ -104,7 +104,7 @@ div.awesomplete .awe-not-found {border: 2px solid red}
             
 
 <div class="wrapper fadeInDown">
-  <div id="formContent">
+  <div id="formContent" >
     <!-- Tabs Titles -->
 
     <!-- Icon -->
@@ -113,10 +113,11 @@ div.awesomplete .awe-not-found {border: 2px solid red}
     </div>
 
     <!-- COMPARE Form -->
-    <form method="GET">
+    <form method="GET" style="overflow-x: scroll;">
      <!--<input  id="air-name" name="airline"  placeholder="airline name" type="text" class='flexdatalist'  multiple='multiple' data-list="{{data}}" style="display: initial;"/>--> 
-      <input type='text' placeholder="Select your airline" class='flexdatalist'  multiple list="air" type="text" name='airline'>
-	 <datalist id="air">
+      <input  type='text' placeholder="Select your airline" class='flexdatalist' multiple data-selection-required='true'
+      list="air" type="text" name='airline' >
+	 <datalist id="air" >
               {% for opt in data %}
               <option value="{{ opt }}">{{ opt }}</option>
               
@@ -142,7 +143,7 @@ div.awesomplete .awe-not-found {border: 2px solid red}
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover fadeIn second" onclick="adv_ser()" id="advnc_btn" >*maximum 3 airlines</a>
+      <a class="underlineHover fadeIn second" onclick="adv_ser()" id="advnc_btn" ><span style="color: red;">*maximum 3 airlines</span></a>
     </div>
 
   </div>
@@ -365,6 +366,9 @@ AwesompleteUtil.start('#air-name',
 </body>
 <script>
 	$('.flexdatalist').flexdatalist({
+
+    selectionRequired: 1,
+    selectionRequired: true,
     
 });
 </script>
