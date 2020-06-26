@@ -215,15 +215,23 @@ def mapl():
     curs3.execute(sql_select_location) 
     map = curs3.fetchall()
     list_countries = [item for t in map for item in t]
+
+    new_list =[]
+    etc=''
+    for l in list_countries:
+        for c in l:
+            if c.isalnum():
+                etc += c
+        new_list.append(etc)
+        etc=''
+
     countries = []
-    for c in list_countries:
+    for c in new_list:
         countries.append(get_loc(c))
+    
     cleaned_count = [x for x in countries if x is not None]
     geo = pd.DataFrame(cleaned_count)
     print(geo)
-
-   
-
     return  geo.to_csv(index=False)         
     
     
