@@ -215,7 +215,7 @@
         {% for airline in wik %}
 
         <div class="col style_prevu_kit "
-          style="background-color:#a4a4a4; border-radius: 3%;margin: 30px;overflow: hidden; text-align: justify;">
+          style="background-color:#dbd9d9; border-radius: 3%;margin: 30px;overflow: hidden; text-align: justify;">
           <div class="justify-content-center p-2" style="text-align: center;"><img src="{{ airline['image'] }}" alt=""
               style="width: 90px; "> </div>
 
@@ -269,24 +269,24 @@
     <div class="container text-center">
       <p>Only the tweets with exact geo-location are considered in this map .</p>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center">
 
 
-        <div id="tester" class="p-3">
 
+    <div class=" text-center">
+      <div id="tester" class=" p-3" style=" width: 100%;position: margin-left: auto;margin-right: auto;display:block ;">
 
-        </div>
 
       </div>
 
 
 
 
-    </div>
+
+
+
 
     </div>
-    </div>
+    
   </section>
 
 
@@ -366,7 +366,7 @@
   <script src="/static/js/creative.js"></script>
 
   <script src="/static/js/awesomplete.js" async></script>
-  
+
   <script>
     function adv_ser() {
       var test = document.getElementById("m1");
@@ -418,7 +418,7 @@
     var lab = {{ dt | tojson }};
     var par = {{ ff | tojson }};
     var val = {{ values | tojson}};
-  
+
 
     var data = [{
       type: "sunburst",
@@ -432,13 +432,13 @@
 
     var layout = {
       margin: { l: 0, r: 0, b: 0, t: 5 },
-      width: 500,
+      width: 600,
       height: 500,
       font: {
-    family: 'Gill Sans',
-    size: 13,
-    color: '#7f7f7f'
-  }
+        family: 'Gill Sans',
+        size: 13,
+        color: '#7f7f7f'
+      }
     };
 
 
@@ -464,83 +464,84 @@
 
   </script>
 
-<script>
-  //draw the right plot (radar)
-  var airl = {{ air | tojson }};
-  var visul = {{ vis | tojson  }};
+  <script>
+    //draw the right plot (radar)
+    var airl = {{ air | tojson }};
+    var visul = {{ vis | tojson  }};
     data = [];
-    
-    for (airline in airl ){
-    kiki = {};
+
+    for (airline in airl) {
+      kiki = {};
       kiki['type'] = 'scatterpolar';
-      kiki['r']=  visul[airline];
-      kiki['theta'] = ['Ground Service','Inflight Entertainement','Legroom', 'Value For Money', 'Food & Beverage', 'Cabin Staff Service'];
+      kiki['r'] = visul[airline];
+      kiki['theta'] = ['Ground Service', 'Inflight Entertainement', 'Legroom', 'Value For Money', 'Food & Beverage', 'Cabin Staff Service'];
       kiki['fill'] = 'toself';
-      kiki['name'] = airl[airline] ;
-    
-    data.push(kiki);
-   }
+      kiki['name'] = airl[airline];
 
-   layout = {
-   width:600,
-   height:500,
-  polar: {
-    radialaxis: {
-      visible: true,
-      range: [0, 120]
+      data.push(kiki);
     }
-  },font: {
-    family: 'Gill Sans',
-    size: 13,
-    color: '#7f7f7f'
-  }
- }
 
-Plotly.newPlot("aspect", data, layout)
-</script>
-<script>
-  //draw the map
-  Plotly.d3.csv(
-"/mapl", function(err, rows) {
-   function unpack(rows, key) {
-     return rows.map(function(row) {
-       return row[key];
-     });
-   }
+    layout = {
+      width: 600,
+      height: 500,
+      polar: {
+        radialaxis: {
+          visible: true,
+          range: [0, 400]
+        }
+      }, font: {
+        family: 'Gill Sans',
+        size: 13,
+        color: '#7f7f7f'
+      }
+    }
 
-   var data = [
-     {
-       type: "scattermapbox",
-       lon: unpack(rows, 1),
-       lat: unpack(rows, 0),
-       mode:'markers',
-               marker: {
-                size:8
-               },
-     }
-   ];
+    Plotly.newPlot("aspect", data, layout)
+  </script>
+  <script>
+    //draw the map
+    Plotly.d3.csv(
+      "/mapl", function (err, rows) {
+        function unpack(rows, key) {
+          return rows.map(function (row) {
+            return row[key];
+          });
+        }
 
-   var layout = {
-     width:1200,
-     height : 600,
-     dragmode: "zoom",
-     mapbox: { 
-       style: "light",
-      zoom: 0 },
-     margin: { r: 0, t: 0, b: 0, l: 0 },
-     
-       };
-       
+        var data = [
+          {
+            type: "scattermapbox",
+            lon: unpack(rows, 1),
+            lat: unpack(rows, 0),
+            mode: 'markers',
+            marker: {
+              size: 8
+            },
+          }
+        ];
 
-       Plotly.setPlotConfig({
-           mapboxAccessToken: "pk.eyJ1Ijoic292aXgiLCJhIjoiY2s3OW42Y2k4MGJ1MDNmcnozdTF2dXNncCJ9.hYCCPqJ3qkBgj7Y8MCo8_w"
-           })
+        var layout = {
+          width: 1690,
+          height: 600,
+          dragmode: "zoom",
+          mapbox: {
+            style: "light",
+            zoom: 1
+          },
+          margin: { r: 0, t: 0, b: 0, l: 0 },
 
-   Plotly.newPlot("tester", data, layout);
- }
-);
+        };
 
 
-</script>
+        Plotly.setPlotConfig({
+          mapboxAccessToken: "pk.eyJ1Ijoic292aXgiLCJhIjoiY2s3OW42Y2k4MGJ1MDNmcnozdTF2dXNncCJ9.hYCCPqJ3qkBgj7Y8MCo8_w"
+        })
+
+        Plotly.newPlot("tester", data, layout);
+      }
+    );
+
+
+  </script>
 
 </html>
