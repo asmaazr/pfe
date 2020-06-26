@@ -1,5 +1,5 @@
 #change those parametres to fit your configuration 
 host='localhost'
-database='projet_dyal_pfe'
+database='aircompare'
 user='root'
-password='mercurycreatures12345'
+password=''
