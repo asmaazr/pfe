@@ -1,25 +1,25 @@
-# Aircompare
 
+<div align="center">
+  <hr />
+  <p>
+      <img width="400" src="static/img/logo.png" alt="Awesome Morocco" />
 
-
+  </p>
+  <hr />
+  <br />
+</div>
 
 <img src="static/img/plane.jpg" width="1000" height="400" />
 
 
-This is an open source application that unables you to compare between the different airlines companies regarding airlines quality standards , consumers feedback and several aspects in order to make the best choice and wonder the world. This application was conceived by senior students of computer science departement of UCA's university to help customers live the best travelling experience by offering them the best airlines companies comparator.
-
-
-
-
-
-
-
+This is an open source application that enables you to compare between the different airlines regarding airline quality standards, consumers feedback and several aspects in order to make the best choice. This application was conceived by senior students of computer science departement of UCA's university to help customers live the best travelling experience by offering them the best airlines companies comparator.
 
 
 ### Installation
 
 
-All the installation requirements are found in the requierements.txt file,too lazy to install them ,don't worry we got your back just run the command below : 
+All the installation requirements are found in the requierements.txt file, too lazy to install them ?
+don't worry we got your back just run the command below : 
 
 ```sh
 $ pip install -r requirements.txt
@@ -33,12 +33,12 @@ database='yourDataBase'
 user='root'
 password='yourpassword'
 ```
+
 ### Lanching the app
 To run the app just copy paste the command below in your command line:
 ```sh
 $ py views.py
 ```
-
 
 Verify the deployment by navigating to your server address in your preferred browser.
 
@@ -49,9 +49,6 @@ Verify the deployment by navigating to your server address in your preferred bro
 
 License
 ----
-
-
-
 
 
 **Free Software, Hell Yeah!**

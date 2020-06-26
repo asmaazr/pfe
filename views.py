@@ -5,8 +5,7 @@ import re
 import json
 import pandas as pd
 import pycountry
-from senti_anal import *
-from aspect_model import *
+from models_process import *
 from tweet import *
 import numpy as np
 import plotly
@@ -16,15 +15,13 @@ from sqlalchemy  import create_engine
 import mysql.connector
 from mysql.connector import Error
 import plotly.express as px
-from testw import *
+from wiki import *
 from tweetEmbed import *
 from flask import Markup
 from localisation import *
 import connection_db
+
 app = Flask(__name__)
-
-
-
 
 @app.route('/index', methods=('GET', 'POST'))
 def index():
@@ -77,11 +74,7 @@ def index():
         df.to_sql('details', con = engine, if_exists = 'replace')
         return redirect(url_for('data'))
 
-    
     return render_template('index.html' ,data = airline_name)
-
-
-
 
 
 @app.route('/data')
@@ -202,6 +195,8 @@ def data():
             print("MySQL connection is closed")
   
     return render_template('results.html',dt= blabla,ff = par,values = val,wik =wiki,code = data,air= airlines,vis=vis,aspects=aspects,nb_tw=nb_tw,best=best )
+
+
 @app.route('/mapl')
 def mapl():
 
@@ -234,16 +229,6 @@ def mapl():
     print(geo)
     return  geo.to_csv(index=False)         
     
-    
-        
-     
-
-
-
-
-
-    
-
 
 if __name__ == "__main__":
     app.run()

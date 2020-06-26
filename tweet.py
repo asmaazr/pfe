@@ -20,7 +20,7 @@ def stream_tweets(search_terms):
     data = [] # empty list to which tweet_details obj will be added
     for search_term in search_terms:
         search_term = search_term.replace("_", " ")
-        for tweet in tweepy.Cursor(api.search, q='{} -filter:retweets AND -filter:replies'.format(search_term) , lang='en', tweet_mode='extended', result_type='mixed').items(100):
+        for tweet in tweepy.Cursor(api.search, q='{} -filter:retweets AND -filter:replies'.format(search_term) , lang='en', tweet_mode='extended', result_type='mixed').items(500):
             tweet_details = {}
             if  (str(tweet.user.verified).lower() == 'true') or (str(tweet.user.screen_name).lower() == str(search_term).lower()):
               continue

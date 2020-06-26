@@ -48,36 +48,36 @@
   <script src="//nico-amsterdam.github.io/awesomplete-util/js/awesomplete.min.js"></script>
   <script src="//nico-amsterdam.github.io/awesomplete-util/js/awesomplete-util.min.js"></script>
   <style>
-    .style_prevu_kit
-{
-    display:inline-block;
-    border:0;
-    width:100px;
-    height:200px;
-    position: relative;
-    -webkit-transition: all 200ms ease-in;
-    -webkit-transform: scale(1); 
-    -ms-transition: all 200ms ease-in;
-    -ms-transform: scale(1); 
-    -moz-transition: all 200ms ease-in;
-    -moz-transform: scale(1);
-    transition: all 200ms ease-in;
-    transform: scale(1);   
+    .style_prevu_kit {
+      display: inline-block;
+      border: 0;
+      width: 100px;
+      height: 200px;
+      position: relative;
+      -webkit-transition: all 200ms ease-in;
+      -webkit-transform: scale(1);
+      -ms-transition: all 200ms ease-in;
+      -ms-transform: scale(1);
+      -moz-transition: all 200ms ease-in;
+      -moz-transform: scale(1);
+      transition: all 200ms ease-in;
+      transform: scale(1);
 
-}
-.style_prevu_kit:hover
-{
-    box-shadow: 0px 0px 150px #000000;
-    z-index: 2;
-    -webkit-transition: all 200ms ease-in;
-    -webkit-transform: scale(1.5);
-    -ms-transition: all 200ms ease-in;
-    -ms-transform: scale(1.5);   
-    -moz-transition: all 200ms ease-in;
-    -moz-transform: scale(1.5);
-    transition: all 200ms ease-in;
-    transform: scale(1.5);
-}
+    }
+
+    .style_prevu_kit:hover {
+      box-shadow: 0px 0px 150px #000000;
+      z-index: 2;
+      -webkit-transition: all 200ms ease-in;
+      -webkit-transform: scale(1.5);
+      -ms-transition: all 200ms ease-in;
+      -ms-transform: scale(1.5);
+      -moz-transition: all 200ms ease-in;
+      -moz-transform: scale(1.5);
+      transition: all 200ms ease-in;
+      transform: scale(1.5);
+    }
+
     /* DEMO-SPECIFIC STYLES */
     .typewriter h1 {
       color: #333;
@@ -162,7 +162,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-       
+
         </ul>
       </div>
     </div>
@@ -173,18 +173,19 @@
   <!-- Masthead -->
   <header class="masthead" style="background-color: #3c3c3c !important; background: none;">
     <div class="container h-100">
-      
+
       <div class="row h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-3 " style="background-color: white; border-radius: 3%; width: 50px;">
           <i class="fas fa-cogs" style="font-size: 5rem !important;padding-top: 0.5rem;"></i>
-          <p>Accuracy of models</p> 
+          <p>Accuracy of models</p>
           <p>80%</p>
         </div>
         <div class="col-lg-6 align-self-baseline">
           <div class="wrapper fadeInDown">
             <div class="fadeIn first p-5">
               <img src="/static/img/Twitter_Logo_Blue.png" style="width: 90px;">
-              <a class="navbar-brand js-scroll-trigger" style="color: white;font-family: 'Julius Sans One', sans-serif;">Tweets Stream</a>
+              <a class="navbar-brand js-scroll-trigger"
+                style="color: white;font-family: 'Julius Sans One', sans-serif;">Tweets Stream</a>
             </div>
 
 
@@ -194,10 +195,10 @@
 
           </div>
         </div>
-        <div class="col-lg-3 justify-content-center"  style="background-color: white; border-radius: 3%;width: 50px;"  >
+        <div class="col-lg-3 justify-content-center" style="background-color: white; border-radius: 3%;width: 50px;">
           <i class="fas fa-check" style="font-size: 5rem !important;color: green;"></i>
           <p>Database : connected !</p>
-          <p>{{ nb_tw }}  Tweets collected</p>
+          <p>{{ nb_tw }} Tweets collected</p>
         </div>
       </div>
     </div>
@@ -206,79 +207,84 @@
   <!-- About Section -->
   <section class="page-section">
     <div class="container h-100">
-    <div class="row h-100 ">
-   
-   
-     
-      
-         {% for airline in wik %}
-         
-        <div class="col style_prevu_kit " style="background-color:#34cceb; border-radius: 3%;margin: 30px;overflow: hidden;">
-   <div class="justify-content-center p-2" style="text-align: center;" ><img src= "{{ airline['image'] }}" alt="" style="width: 90px; "> </div>
-       
-         
-          
+      <div class="row h-100 ">
+
+
+
+
+        {% for airline in wik %}
+
+        <div class="col style_prevu_kit "
+          style="background-color:#a4a4a4; border-radius: 3%;margin: 30px;overflow: hidden; text-align: justify;">
+          <div class="justify-content-center p-2" style="text-align: center;"><img src="{{ airline['image'] }}" alt=""
+              style="width: 90px; "> </div>
+
+
+
           <p class="p-3">{{ airline['summary'] }}</p>
         </div>
-    
-          {% endfor %}
-      
-    
-  
-</div>
+
+        {% endfor %}
 
 
-<div class="wrapper fadeInDown">
-  <div class="fadeIn first p-5 " >
-    <img src="/static/img/plane.png" style="width: 60px;">
-    <a class="navbar-brand js-scroll-trigger" style="color: #333;font-family: 'Julius Sans One', sans-serif;">the best airline based on our algorithms is </a>
-  </div>
+
+      </div>
 
 
-   <h2>{{ best }}</h2>
-</div>
+      <div class="wrapper fadeInDown">
+        <div class="fadeIn first p-5 ">
+          <img src="/static/img/plane.png" style="width: 60px;">
+          <a class="navbar-brand js-scroll-trigger" style="color: #333;font-family: 'Julius Sans One', sans-serif;">the
+            best airline based on our algorithms is </a>
+        </div>
 
 
-</div>
+        <h2 style="font-size: 3rem;">{{ best }}</h2>
+      </div>
+
+
+    </div>
     <div class="container p-5">
       <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
-        
+
           <div id='myDiv' class="p-3">
 
 
           </div>
         </div>
         <div class="col-lg-6 text-center">
-        
+
           <div id="aspect" class="p-3">
-           
-            
+
+
           </div>
         </div>
 
 
 
       </div>
-      
+
     </div>
-    <div class="container text-center"><p>Only the tweets with exact geo-location are considered in this map .</p></div>
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-        
-         
-         <div id="tester" class="p-3"  >
+    <div class="container text-center">
+      <p>Only the tweets with exact geo-location are considered in this map .</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+
+
+        <div id="tester" class="p-3">
 
 
         </div>
-        
-        </div>
-        
-        
-
 
       </div>
-    
+
+
+
+
+    </div>
+
     </div>
     </div>
   </section>
@@ -331,7 +337,7 @@
       <p class="footer-company-about">
         <span>About the project</span>
         Aircompare provides comparison of airlines, and insights to help you plan your next trip.
-    </p>
+      </p>
 
       <div class="footer-icons">
 
@@ -345,8 +351,6 @@
     </div>
 
   </footer>
-
-
 
 
 
@@ -427,9 +431,14 @@
     }];
 
     var layout = {
-      margin: { l: 0, r: 0, b: 0, t: 0 },
+      margin: { l: 0, r: 0, b: 0, t: 5 },
       width: 500,
       height: 500,
+      font: {
+    family: 'Gill Sans',
+    size: 13,
+    color: '#7f7f7f'
+  }
     };
 
 
@@ -472,14 +481,18 @@
     data.push(kiki);
    }
 
- layout = {
-   width:500,
+   layout = {
+   width:600,
    height:500,
   polar: {
     radialaxis: {
       visible: true,
       range: [0, 120]
     }
+  },font: {
+    family: 'Gill Sans',
+    size: 13,
+    color: '#7f7f7f'
   }
  }
 
