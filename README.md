@@ -12,7 +12,7 @@
 <img src="static/img/plane.jpg" width="1000" height="400" />
 
 
-This is an open source application that enables you to compare between the different airlines regarding airline quality standards, consumers feedback and several aspects in order to make the best choice. This application was conceived by senior students of computer science departement of UCA's university to help customers live the best travelling experience by offering them the best airlines companies comparator.
+This is an open source application that enables you to compare between the different airlines regarding airline quality standards, consumers feedback and several aspects in order to make the best choice. This application was conceived by senior students of computer science departement of UCA's university to help customers live the best travelling experience by offering them the best airline companies comparator.
 
 
 ### Installation
@@ -45,13 +45,23 @@ Verify the deployment by navigating to your server address in your preferred bro
 ```sh
 127.0.0.1:5000/index
 ```
+### App Demo
+<div align="center">
+  <p>
+      <img width="800" src="./static/img/appDemo.gif" alt="Awesome Morocco" />
 
+  </p>
+  <br />
+</div>
+
+### Docs
+You can find all the informations and resources in [datasets](https://github.com/asmaazr/pfe/tree/master/datasets), [docs](https://github.com/asmaazr/pfe/tree/master/docs) and [notebook](https://github.com/asmaazr/pfe/tree/master/notebook).
 
 License
 ----
 
 
-**Free Software, Hell Yeah!**
+**Free Software, Hell Yeah! :metal:**
 
 
 
