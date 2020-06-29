@@ -26,7 +26,7 @@ $ pip install -r requirements.txt
 ```
 
 ### Database configuration 
-Copy paste the code below in your connection_db.py file and change the values to fit your database configuration :
+Change the values in connection_db.py file to fit your database configuration :
 ```sh
 host='yourlocalhost'
 database='yourDataBase'
